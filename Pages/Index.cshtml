@@ -1,10 +1,50 @@
-﻿@page
+@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Welcome";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center py-5">
+    <i class="bi bi-cup-straw display-1 text-warning"></i>
+    <h1 class="display-3 fw-bold mt-3">BarKeep</h1>
+    <p class="lead text-muted fs-4">Bar & Grill — Order food and drinks right from your table.</p>
+    <hr class="mx-auto" style="width: 100px;" />
+    <div class="d-flex justify-content-center gap-3 mt-4">
+        <a asp-page="/Menu/Index" class="btn btn-dark btn-lg px-4">
+            <i class="bi bi-book me-2"></i>View Menu
+        </a>
+        <a asp-page="/Orders/Index" class="btn btn-outline-dark btn-lg px-4">
+            <i class="bi bi-receipt me-2"></i>My Orders
+        </a>
+    </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
+    <div class="col">
+        <div class="card text-center border-0 shadow-sm h-100">
+            <div class="card-body">
+                <i class="bi bi-book display-4 text-info"></i>
+                <h5 class="card-title mt-3">Browse the Menu</h5>
+                <p class="card-text text-muted">Explore our craft cocktails, appetizers, entrees, and desserts.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card text-center border-0 shadow-sm h-100">
+            <div class="card-body">
+                <i class="bi bi-cart-plus display-4 text-success"></i>
+                <h5 class="card-title mt-3">Add to Cart</h5>
+                <p class="card-text text-muted">Build your order with just a few taps. Adjust quantities anytime.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card text-center border-0 shadow-sm h-100">
+            <div class="card-body">
+                <i class="bi bi-check-circle display-4 text-warning"></i>
+                <h5 class="card-title mt-3">Place Your Order</h5>
+                <p class="card-text text-muted">Submit your order and track it in your order history.</p>
+            </div>
+        </div>
+    </div>
 </div>

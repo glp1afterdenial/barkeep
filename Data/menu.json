@@ -1,0 +1,164 @@
+[
+  {
+    "Id": 1,
+    "Name": "Classic Margarita",
+    "Description": "Tequila, lime juice, and triple sec served on the rocks with a salted rim.",
+    "Price": 12.00,
+    "Category": 0,
+    "ImageUrl": "",
+    "IsAvailable": true
+  },
+  {
+    "Id": 2,
+    "Name": "Old Fashioned",
+    "Description": "Bourbon, Angostura bitters, sugar, and a twist of orange peel.",
+    "Price": 14.00,
+    "Category": 0,
+    "ImageUrl": "",
+    "IsAvailable": true
+  },
+  {
+    "Id": 3,
+    "Name": "Moscow Mule",
+    "Description": "Vodka, ginger beer, and fresh lime juice served in a copper mug.",
+    "Price": 11.00,
+    "Category": 0,
+    "ImageUrl": "",
+    "IsAvailable": true
+  },
+  {
+    "Id": 4,
+    "Name": "Craft IPA",
+    "Description": "Locally brewed India Pale Ale with citrus and pine hop notes.",
+    "Price": 8.00,
+    "Category": 0,
+    "ImageUrl": "",
+    "IsAvailable": true
+  },
+  {
+    "Id": 5,
+    "Name": "House Red Wine",
+    "Description": "A smooth Cabernet Sauvignon with notes of dark cherry and oak.",
+    "Price": 10.00,
+    "Category": 0,
+    "ImageUrl": "",
+    "IsAvailable": true
+  },
+  {
+    "Id": 6,
+    "Name": "Loaded Nachos",
+    "Description": "Tortilla chips topped with cheddar, jalape\u00f1os, pico de gallo, sour cream, and guacamole.",
+    "Price": 13.00,
+    "Category": 1,
+    "ImageUrl": "",
+    "IsAvailable": true
+  },
+  {
+    "Id": 7,
+    "Name": "Buffalo Wings",
+    "Description": "Crispy chicken wings tossed in spicy buffalo sauce with ranch dipping sauce.",
+    "Price": 14.00,
+    "Category": 1,
+    "ImageUrl": "",
+    "IsAvailable": true
+  },
+  {
+    "Id": 8,
+    "Name": "Mozzarella Sticks",
+    "Description": "Golden-fried mozzarella served with marinara dipping sauce.",
+    "Price": 10.00,
+    "Category": 1,
+    "ImageUrl": "",
+    "IsAvailable": true
+  },
+  {
+    "Id": 9,
+    "Name": "Spinach Artichoke Dip",
+    "Description": "Creamy blend of spinach, artichoke hearts, and parmesan served with toasted pita.",
+    "Price": 11.00,
+    "Category": 1,
+    "ImageUrl": "",
+    "IsAvailable": true
+  },
+  {
+    "Id": 10,
+    "Name": "Classic Burger",
+    "Description": "Half-pound Angus beef patty with lettuce, tomato, onion, and pickles on a brioche bun. Served with fries.",
+    "Price": 16.00,
+    "Category": 2,
+    "ImageUrl": "",
+    "IsAvailable": true
+  },
+  {
+    "Id": 11,
+    "Name": "Grilled Salmon",
+    "Description": "Atlantic salmon fillet with lemon-dill butter, roasted vegetables, and rice pilaf.",
+    "Price": 22.00,
+    "Category": 2,
+    "ImageUrl": "",
+    "IsAvailable": true
+  },
+  {
+    "Id": 12,
+    "Name": "BBQ Ribs",
+    "Description": "Slow-smoked half rack of baby back ribs with house BBQ sauce, coleslaw, and cornbread.",
+    "Price": 24.00,
+    "Category": 2,
+    "ImageUrl": "",
+    "IsAvailable": true
+  },
+  {
+    "Id": 13,
+    "Name": "Fish & Chips",
+    "Description": "Beer-battered cod fillets with crispy fries, tartar sauce, and malt vinegar.",
+    "Price": 17.00,
+    "Category": 2,
+    "ImageUrl": "",
+    "IsAvailable": true
+  },
+  {
+    "Id": 14,
+    "Name": "Chicken Caesar Salad",
+    "Description": "Grilled chicken breast over romaine with parmesan, croutons, and house Caesar dressing.",
+    "Price": 15.00,
+    "Category": 2,
+    "ImageUrl": "",
+    "IsAvailable": true
+  },
+  {
+    "Id": 15,
+    "Name": "Chocolate Lava Cake",
+    "Description": "Warm chocolate cake with a molten center, served with vanilla ice cream.",
+    "Price": 10.00,
+    "Category": 3,
+    "ImageUrl": "",
+    "IsAvailable": true
+  },
+  {
+    "Id": 16,
+    "Name": "New York Cheesecake",
+    "Description": "Creamy cheesecake with a graham cracker crust and fresh berry compote.",
+    "Price": 9.00,
+    "Category": 3,
+    "ImageUrl": "",
+    "IsAvailable": true
+  },
+  {
+    "Id": 17,
+    "Name": "Apple Crisp",
+    "Description": "Warm spiced apples topped with oat crumble and caramel drizzle, served with whipped cream.",
+    "Price": 9.00,
+    "Category": 3,
+    "ImageUrl": "",
+    "IsAvailable": true
+  },
+  {
+    "Id": 18,
+    "Name": "Espresso Martini",
+    "Description": "Vodka, coffee liqueur, and fresh espresso shaken to perfection.",
+    "Price": 14.00,
+    "Category": 0,
+    "ImageUrl": "",
+    "IsAvailable": true
+  }
+]
