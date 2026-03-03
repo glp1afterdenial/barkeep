@@ -86,7 +86,7 @@
     "Description": "Half-pound Angus beef patty with lettuce, tomato, onion, and pickles on a brioche bun. Served with fries.",
     "Price": 16.00,
     "Category": 2,
-    "ImageUrl": "https://images.unsplash.com/photo-1568901346602-7b28f7db9e04?w=400&h=300&fit=crop",
+    "ImageUrl": "https://images.unsplash.com/photo-1550547660-d9450f859349?w=400&h=300&fit=crop",
     "IsAvailable": true
   },
   {
@@ -239,7 +239,7 @@
     "Description": "Vodka, tequila, rum, gin, and triple sec with a splash of cola. Dangerously smooth.",
     "Price": 15.00,
     "Category": 0,
-    "ImageUrl": "https://images.unsplash.com/photo-1497534446932-c925d4bf6e73?w=400&h=300&fit=crop",
+    "ImageUrl": "https://images.unsplash.com/photo-1536935338788-846bb9981813?w=400&h=300&fit=crop",
     "IsAvailable": true
   },
   {
