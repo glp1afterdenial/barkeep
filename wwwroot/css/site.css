@@ -52,12 +52,8 @@ body {
 }
 
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-12px);
-  }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
 }
 
 @keyframes pulseGlow {
@@ -72,35 +68,19 @@ body {
 }
 
 @keyframes scaleIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.3);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
+  0% { opacity: 0; transform: scale(0.3); }
+  50% { transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
 }
 
 @keyframes shimmer {
-  0% {
-    background-position: -200% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
 }
 
 @keyframes glowPulse {
-  0%, 100% {
-    box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
-  }
-  50% {
-    box-shadow: 0 0 25px rgba(245, 158, 11, 0.3);
-  }
+  0%, 100% { box-shadow: 0 0 15px rgba(245, 158, 11, 0.15); }
+  50% { box-shadow: 0 0 25px rgba(245, 158, 11, 0.3); }
 }
 
 /* --- Animation Utility Classes --- */
@@ -150,7 +130,8 @@ body {
   position: relative;
 }
 
-.navbar .nav-link:hover {
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
   color: #f59e0b !important;
   transform: translateY(-1px);
 }
@@ -166,13 +147,14 @@ body {
   transition: width 0.3s ease, left 0.3s ease;
 }
 
-.navbar .nav-link:hover::after {
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after {
   width: 80%;
   left: 10%;
 }
 
 /* --- Cart Badge Pulse --- */
-.badge.bg-warning {
+.nav-link > .badge.bg-warning {
   animation: pulseGlow 2s ease-in-out infinite;
   background-color: #f59e0b !important;
   color: #0f0f1a !important;
@@ -199,10 +181,11 @@ body {
   background: linear-gradient(90deg, #f59e0b, #ea580c, #f59e0b);
   opacity: 0;
   transition: opacity 0.3s ease;
+  z-index: 1;
 }
 
 .card:hover {
-  transform: translateY(-4px) scale(1.03);
+  transform: translateY(-4px) scale(1.02);
   box-shadow: 0 8px 30px rgba(245, 158, 11, 0.2), 0 0 15px rgba(245, 158, 11, 0.1);
   border-color: rgba(245, 158, 11, 0.3);
 }
@@ -230,13 +213,34 @@ body {
   border-top: 1px solid rgba(245, 158, 11, 0.1);
 }
 
-/* --- Glassmorphism Card Variant --- */
+/* --- Glassmorphism Card --- */
 .card-glass {
   background: rgba(26, 26, 46, 0.7) !important;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(245, 158, 11, 0.2);
   animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* --- Sticky Summary (Cart/Order) --- */
+.sticky-summary {
+  position: sticky;
+  top: 1rem;
+}
+
+/* --- Menu Item Card with Image --- */
+.menu-item-card {
+  overflow: hidden;
+}
+
+.menu-item-img {
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.menu-item-card:hover .menu-item-img {
+  transform: scale(1.08);
 }
 
 /* --- Buttons --- */
@@ -274,7 +278,7 @@ body {
   box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
 }
 
-/* Shimmer hover effect on primary buttons */
+/* Shimmer on primary buttons */
 .btn-amber::after,
 .btn-success::after {
   content: '';
@@ -286,7 +290,7 @@ body {
   background: linear-gradient(
     120deg,
     transparent 30%,
-    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0.2) 50%,
     transparent 70%
   );
   background-size: 200% 100%;
@@ -294,7 +298,7 @@ body {
   pointer-events: none;
 }
 
-/* Existing btn overrides for dark theme */
+/* Dark btn → amber in dark theme */
 .btn-dark {
   background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
   border-color: #f59e0b !important;
@@ -356,11 +360,15 @@ body {
   box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
 }
 
-/* Quantity +/- buttons */
-.btn-sm.btn-outline-secondary {
-  transition: all 0.2s ease;
+/* Add-to-cart button "adding" state */
+.btn-adding {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+  border-color: #059669 !important;
+  color: #fff !important;
+  pointer-events: none;
 }
 
+/* Quantity +/- buttons */
 .btn-sm.btn-outline-secondary:active {
   transform: scale(0.9);
 }
@@ -392,6 +400,10 @@ body {
   background-color: #252545;
   color: #e2e8f0;
   border-color: #f59e0b;
+}
+
+.input-group-text {
+  border-radius: 8px 0 0 8px;
 }
 
 /* --- Tables --- */
@@ -427,7 +439,7 @@ tfoot.table-light,
   border-color: rgba(245, 158, 11, 0.1);
 }
 
-/* --- Badges (neon bright for dark bg) --- */
+/* --- Badges (neon for dark bg) --- */
 .badge {
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -455,66 +467,109 @@ tfoot.table-light,
 }
 
 /* --- Category Filter Buttons (Menu Page) --- */
-.btn-group .btn-info,
-.btn-group .btn.btn-info {
+.category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  justify-content: flex-end;
+}
+
+@media (max-width: 767.98px) {
+  .category-filters {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+  }
+
+  .category-filters .btn {
+    flex-shrink: 0;
+  }
+}
+
+.category-filters .btn-info,
+.category-filters .btn.btn-info {
   background: linear-gradient(135deg, #06b6d4, #0891b2) !important;
   border-color: #06b6d4 !important;
   color: #fff !important;
 }
 
-.btn-group .btn-outline-info {
+.category-filters .btn-outline-info {
   border-color: #06b6d4 !important;
   color: #06b6d4 !important;
 }
-.btn-group .btn-outline-info:hover {
+.category-filters .btn-outline-info:hover {
   background: #06b6d4 !important;
   color: #fff !important;
 }
 
-.btn-group .btn-warning,
-.btn-group .btn.btn-warning {
+.category-filters .btn-warning,
+.category-filters .btn.btn-warning {
   background: linear-gradient(135deg, #f59e0b, #d97706) !important;
   border-color: #f59e0b !important;
   color: #0f0f1a !important;
 }
 
-.btn-group .btn-outline-warning {
+.category-filters .btn-outline-warning {
   border-color: #f59e0b !important;
   color: #f59e0b !important;
 }
-.btn-group .btn-outline-warning:hover {
+.category-filters .btn-outline-warning:hover {
   background: #f59e0b !important;
   color: #0f0f1a !important;
 }
 
-.btn-group .btn-success,
-.btn-group .btn.btn-success {
+.category-filters .btn-success,
+.category-filters .btn.btn-success {
   background: linear-gradient(135deg, #10b981, #059669) !important;
   border-color: #10b981 !important;
 }
 
-.btn-group .btn-outline-success {
+.category-filters .btn-outline-success {
   border-color: #10b981 !important;
   color: #10b981 !important;
 }
-.btn-group .btn-outline-success:hover {
+.category-filters .btn-outline-success:hover {
   background: #10b981 !important;
   color: #fff !important;
 }
 
-.btn-group .btn-danger,
-.btn-group .btn.btn-danger {
+.category-filters .btn-danger,
+.category-filters .btn.btn-danger {
   background: linear-gradient(135deg, #f43f5e, #e11d48) !important;
   border-color: #f43f5e !important;
 }
 
-.btn-group .btn-outline-danger {
+.category-filters .btn-outline-danger {
   border-color: #f43f5e !important;
   color: #f43f5e !important;
 }
-.btn-group .btn-outline-danger:hover {
+.category-filters .btn-outline-danger:hover {
   background: #f43f5e !important;
   color: #fff !important;
+}
+
+/* --- Toast Notifications --- */
+.toast-success,
+.toast.toast-success {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+  border-left: 4px solid #34d399;
+  border-radius: 8px;
+}
+
+.toast-danger,
+.toast.toast-danger {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%) !important;
+  border-left: 4px solid #f87171;
+  border-radius: 8px;
+}
+
+.toast-info,
+.toast.toast-info {
+  background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%) !important;
+  border-left: 4px solid #67e8f9;
+  border-radius: 8px;
 }
 
 /* --- Alerts --- */
@@ -549,12 +604,12 @@ footer small {
   color: #64748b;
 }
 
-/* --- Bg Light Override for Dark Theme --- */
+/* --- Bg Light Override --- */
 .bg-light {
   background-color: rgba(26, 26, 46, 0.6) !important;
 }
 
-/* --- Hero Section (Home Page) --- */
+/* --- Hero Section --- */
 .hero-section {
   position: relative;
   padding: 3rem 0;
@@ -573,7 +628,7 @@ footer small {
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(245, 158, 11, 0.25);
 }
 
-/* --- Gallery Section (Home Page) --- */
+/* --- Gallery --- */
 .gallery-img {
   border-radius: 12px;
   object-fit: cover;
@@ -601,20 +656,28 @@ footer small {
   text-shadow: 0 0 10px rgba(52, 211, 153, 0.3);
 }
 
+/* --- Step Numbers (How it Works) --- */
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #0f0f1a;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
 /* --- Selection Color --- */
 ::selection {
   background: rgba(245, 158, 11, 0.3);
   color: #fff;
 }
 
-/* --- Container (add subtle side glow on large screens) --- */
-@media (min-width: 1200px) {
-  .container {
-    position: relative;
-  }
-}
-
-/* --- Divider Accent --- */
+/* --- Divider --- */
 .divider-amber {
   width: 80px;
   height: 3px;
@@ -622,4 +685,19 @@ footer small {
   border: none;
   border-radius: 2px;
   margin: 1rem auto;
+}
+
+/* --- Responsive --- */
+@media (max-width: 575.98px) {
+  .hero-img {
+    height: 220px !important;
+  }
+
+  .gallery-img {
+    height: 120px;
+  }
+
+  .display-3 {
+    font-size: 2rem;
+  }
 }

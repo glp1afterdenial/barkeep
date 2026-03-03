@@ -9,43 +9,48 @@
 <div class="row">
     <div class="col-lg-7 fade-in-up stagger-1">
         <div class="card mb-4">
-            <div class="card-header">
-                <h5 class="mb-0">Order Items</h5>
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="bi bi-list-check me-2"></i>Order Items</h5>
+                <span class="badge bg-warning rounded-pill">@Model.CartItems.Sum(c => c.Quantity) items</span>
             </div>
             <div class="card-body p-0">
-                <table class="table mb-0">
-                    <thead>
-                        <tr>
-                            <th>Item</th>
-                            <th class="text-center">Qty</th>
-                            <th class="text-end">Subtotal</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model.CartItems)
-                        {
+                <div class="table-responsive">
+                    <table class="table mb-0 align-middle">
+                        <thead>
                             <tr>
-                                <td>@item.Name</td>
-                                <td class="text-center">@item.Quantity</td>
-                                <td class="text-end price-tag">$@item.Subtotal.ToString("F2")</td>
+                                <th>Item</th>
+                                <th class="text-center">Qty</th>
+                                <th class="text-end">Subtotal</th>
                             </tr>
-                        }
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="2" class="text-end">Subtotal</td>
-                            <td class="text-end">$@Model.Subtotal.ToString("F2")</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" class="text-end text-muted">Tax (8%)</td>
-                            <td class="text-end text-muted">$@Model.Tax.ToString("F2")</td>
-                        </tr>
-                        <tr class="fw-bold fs-5">
-                            <td colspan="2" class="text-end">Total</td>
-                            <td class="text-end text-success">$@Model.Total.ToString("F2")</td>
-                        </tr>
-                    </tfoot>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.CartItems)
+                            {
+                                <tr>
+                                    <td>@item.Name</td>
+                                    <td class="text-center">
+                                        <span class="badge bg-warning rounded-pill" style="font-size: 0.85rem;">@item.Quantity</span>
+                                    </td>
+                                    <td class="text-end price-tag">$@item.Subtotal.ToString("F2")</td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="2" class="text-end">Subtotal</td>
+                                <td class="text-end">$@Model.Subtotal.ToString("F2")</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="text-end text-muted">Tax (8%)</td>
+                                <td class="text-end text-muted">$@Model.Tax.ToString("F2")</td>
+                            </tr>
+                            <tr class="fw-bold fs-5">
+                                <td colspan="2" class="text-end">Total</td>
+                                <td class="text-end text-success">$@Model.Total.ToString("F2")</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
@@ -53,19 +58,19 @@
     <div class="col-lg-5 fade-in-up stagger-2">
         <div class="card card-glass">
             <div class="card-header">
-                <h5 class="mb-0">Your Info</h5>
+                <h5 class="mb-0"><i class="bi bi-person me-2"></i>Your Info</h5>
             </div>
             <div class="card-body">
                 <form method="post">
                     <div class="mb-3">
                         <label asp-for="CustomerName" class="form-label">Name</label>
                         <input asp-for="CustomerName" class="form-control" placeholder="Enter your name" />
-                        <span asp-validation-for="CustomerName" class="text-danger"></span>
+                        <span asp-validation-for="CustomerName" class="text-danger small"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="TableNumber" class="form-label">Table Number <span class="text-muted">(optional)</span></label>
                         <input asp-for="TableNumber" class="form-control" placeholder="e.g. 5" />
-                        <span asp-validation-for="TableNumber" class="text-danger"></span>
+                        <span asp-validation-for="TableNumber" class="text-danger small"></span>
                     </div>
                     <button type="submit" class="btn btn-success w-100 btn-lg">
                         <i class="bi bi-send me-1"></i>Submit Order

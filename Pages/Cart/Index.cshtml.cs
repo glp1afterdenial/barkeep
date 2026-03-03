@@ -32,6 +32,8 @@ public class IndexModel : PageModel
         if (menuItem is not null)
         {
             _cartService.AddItem(menuItem.Id, menuItem.Name, menuItem.Price);
+            TempData["Toast"] = $"{menuItem.Name} added to cart!";
+            TempData["ToastType"] = "success";
         }
         return RedirectToPage("/Menu/Index");
     }
@@ -45,12 +47,16 @@ public class IndexModel : PageModel
     public IActionResult OnPostRemove(int menuItemId)
     {
         _cartService.RemoveItem(menuItemId);
+        TempData["Toast"] = "Item removed from cart.";
+        TempData["ToastType"] = "danger";
         return RedirectToPage();
     }
 
     public IActionResult OnPostClear()
     {
         _cartService.Clear();
+        TempData["Toast"] = "Cart cleared.";
+        TempData["ToastType"] = "danger";
         return RedirectToPage();
     }
 

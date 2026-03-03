@@ -44,32 +44,64 @@
     </div>
 </div>
 
-<!-- Feature Cards -->
-<div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
-    <div class="col fade-in-up stagger-4">
-        <div class="card text-center border-0 h-100">
-            <div class="card-body">
-                <i class="bi bi-book display-4" style="color: #06b6d4;"></i>
-                <h5 class="card-title mt-3">Browse the Menu</h5>
-                <p class="card-text text-muted">Explore our craft cocktails, appetizers, entrees, and desserts.</p>
+<!-- Featured Menu Items -->
+@if (Model.FeaturedItems.Any())
+{
+    <div class="mt-5 fade-in-up stagger-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h2 class="fw-bold mb-1">Featured Picks</h2>
+                <p class="text-muted mb-0">A taste of what we offer</p>
             </div>
+            <a asp-page="/Menu/Index" class="btn btn-outline-dark">
+                Full Menu <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+            @{ var featIdx = 0; }
+            @foreach (var item in Model.FeaturedItems)
+            {
+                <div class="col fade-in-up stagger-@(featIdx + 5)">
+                    <partial name="_MenuCard" model="item" />
+                </div>
+                featIdx++;
+            }
         </div>
     </div>
-    <div class="col fade-in-up stagger-5">
-        <div class="card text-center border-0 h-100">
-            <div class="card-body">
-                <i class="bi bi-cart-plus display-4" style="color: #10b981;"></i>
-                <h5 class="card-title mt-3">Add to Cart</h5>
-                <p class="card-text text-muted">Build your order with just a few taps. Adjust quantities anytime.</p>
+}
+
+<!-- How It Works -->
+<div class="mt-5 mb-3">
+    <h2 class="fw-bold text-center mb-4 fade-in-up stagger-6">How It Works</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col fade-in-up stagger-7">
+            <div class="card text-center border-0 h-100">
+                <div class="card-body">
+                    <div class="step-number">1</div>
+                    <i class="bi bi-book display-4" style="color: #06b6d4;"></i>
+                    <h5 class="card-title mt-3">Browse the Menu</h5>
+                    <p class="card-text text-muted">Explore our craft cocktails, appetizers, entrees, and desserts.</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col fade-in-up stagger-6">
-        <div class="card text-center border-0 h-100">
-            <div class="card-body">
-                <i class="bi bi-check-circle display-4" style="color: #f59e0b;"></i>
-                <h5 class="card-title mt-3">Place Your Order</h5>
-                <p class="card-text text-muted">Submit your order and track it in your order history.</p>
+        <div class="col fade-in-up stagger-8">
+            <div class="card text-center border-0 h-100">
+                <div class="card-body">
+                    <div class="step-number">2</div>
+                    <i class="bi bi-cart-plus display-4" style="color: #10b981;"></i>
+                    <h5 class="card-title mt-3">Add to Cart</h5>
+                    <p class="card-text text-muted">Build your order with just a few taps. Adjust quantities anytime.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col fade-in-up stagger-9">
+            <div class="card text-center border-0 h-100">
+                <div class="card-body">
+                    <div class="step-number">3</div>
+                    <i class="bi bi-check-circle display-4" style="color: #f59e0b;"></i>
+                    <h5 class="card-title mt-3">Place Your Order</h5>
+                    <p class="card-text text-muted">Submit your order and track it in your order history.</p>
+                </div>
             </div>
         </div>
     </div>

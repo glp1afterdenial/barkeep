@@ -19,15 +19,16 @@
 }
 else
 {
+    <p class="text-muted mb-4 fade-in-up">@Model.Orders.Count order(s) placed</p>
     <div class="row row-cols-1 row-cols-md-2 g-4">
         @{ var orderIdx = 0; }
         @foreach (var order in Model.Orders)
         {
             <div class="col fade-in-up stagger-@(orderIdx % 9 + 1)">
                 <div class="card h-100">
-                    <div class="card-header d-flex justify-content-between">
+                    <div class="card-header d-flex justify-content-between align-items-center">
                         <span><strong>Order #@order.Id.ToString()[..8].ToUpper()</strong></span>
-                        <span>@order.PlacedAt.ToString("MMM dd, h:mm tt")</span>
+                        <span class="small text-muted">@order.PlacedAt.ToString("MMM dd, h:mm tt")</span>
                     </div>
                     <div class="card-body">
                         <p class="mb-2">
