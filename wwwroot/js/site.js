@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // Auto-dismiss toast notifications after 4 seconds
     document.querySelectorAll('.toast.show').forEach(function (toastEl) {
         setTimeout(function () {
-            toastEl.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            toastEl.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
             toastEl.style.opacity = '0';
             toastEl.style.transform = 'translateX(100%)';
-            setTimeout(function () { toastEl.remove(); }, 500);
+            setTimeout(function () { toastEl.remove(); }, 400);
         }, 4000);
     });
 
@@ -17,4 +17,27 @@ document.addEventListener('DOMContentLoaded', function () {
             btn.classList.add('btn-adding');
         });
     });
+
+    // Scroll-triggered fade-in animations via IntersectionObserver
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion) {
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.scroll-reveal').forEach(function (el) {
+            observer.observe(el);
+        });
+    } else {
+        // If reduced motion, show everything immediately
+        document.querySelectorAll('.scroll-reveal').forEach(function (el) {
+            el.classList.add('is-visible');
+        });
+    }
 });

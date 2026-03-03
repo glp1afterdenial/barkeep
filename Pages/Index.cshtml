@@ -5,13 +5,13 @@
 }
 
 <div class="hero-section fade-in-up">
-    <div class="row align-items-center g-5">
+    <div class="row align-items-center g-4 g-lg-5">
         <div class="col-lg-6 text-center text-lg-start">
             <i class="bi bi-cup-straw display-1 float-animation d-inline-block" style="color: #3b82f6;"></i>
             <h1 class="display-3 fw-bold mt-3">BarKeep</h1>
-            <p class="lead fs-4 text-muted">Bar & Grill &mdash; Order food and drinks right from your table.</p>
+            <p class="lead text-muted">Bar & Grill &mdash; Order food and drinks right from your table.</p>
             <hr class="divider-amber mx-auto mx-lg-0" />
-            <div class="d-flex justify-content-center justify-content-lg-start gap-3 mt-4">
+            <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3 mt-4">
                 <a asp-page="/Menu/Index" class="btn btn-dark btn-lg px-4">
                     <i class="bi bi-book me-2"></i>View Menu
                 </a>
@@ -23,7 +23,7 @@
         <div class="col-lg-6 fade-in-up stagger-2">
             <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=600&h=400&fit=crop"
                  alt="Craft cocktails at BarKeep"
-                 class="hero-img w-100" style="height: 380px;" loading="eager" />
+                 class="hero-img w-100" loading="eager" />
         </div>
     </div>
 </div>
@@ -47,7 +47,7 @@
 <!-- Featured Menu Items -->
 @if (Model.FeaturedItems.Any())
 {
-    <div class="mt-5 fade-in-up stagger-4">
+    <div class="mt-5 scroll-reveal">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div>
                 <h2 class="fw-bold mb-1">Featured Picks</h2>
@@ -58,24 +58,22 @@
             </a>
         </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
-            @{ var featIdx = 0; }
             @foreach (var item in Model.FeaturedItems)
             {
-                <div class="col fade-in-up stagger-@(featIdx + 5)">
+                <div class="col">
                     <partial name="_MenuCard" model="item" />
                 </div>
-                featIdx++;
             }
         </div>
     </div>
 }
 
 <!-- How It Works -->
-<div class="mt-5 mb-3">
-    <h2 class="fw-bold text-center mb-4 fade-in-up stagger-6">How It Works</h2>
+<div class="mt-5 mb-3 scroll-reveal">
+    <h2 class="fw-bold text-center mb-4">How It Works</h2>
     <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col fade-in-up stagger-7">
-            <div class="card text-center border-0 h-100">
+        <div class="col">
+            <div class="card text-center h-100" style="border: none; background: transparent;">
                 <div class="card-body">
                     <div class="step-number">1</div>
                     <i class="bi bi-book display-4 text-muted"></i>
@@ -84,8 +82,8 @@
                 </div>
             </div>
         </div>
-        <div class="col fade-in-up stagger-8">
-            <div class="card text-center border-0 h-100">
+        <div class="col">
+            <div class="card text-center h-100" style="border: none; background: transparent;">
                 <div class="card-body">
                     <div class="step-number">2</div>
                     <i class="bi bi-cart-plus display-4 text-muted"></i>
@@ -94,8 +92,8 @@
                 </div>
             </div>
         </div>
-        <div class="col fade-in-up stagger-9">
-            <div class="card text-center border-0 h-100">
+        <div class="col">
+            <div class="card text-center h-100" style="border: none; background: transparent;">
                 <div class="card-body">
                     <div class="step-number">3</div>
                     <i class="bi bi-check-circle display-4 text-muted"></i>
